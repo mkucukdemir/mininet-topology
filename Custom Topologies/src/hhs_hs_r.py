@@ -1,10 +1,12 @@
 #! /usr/bin/python
 
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
+#      R
+#    /   \
+#   S     S
+#  / \    |
+# H   H   H
 
-__author__ = "mehmet"
+__author__ = "m.kucukdemir"
 __date__ = "$Sep 30, 2016 9:49:01 PM$"
 
 from mininet.topo import Topo
