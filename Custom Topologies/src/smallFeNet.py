@@ -103,12 +103,12 @@ class SmallFeNet( Topo ):
         self.addLink(as1a1h4, as1a1s3, cls=TCLink,**customLink)
         self.addLink(as1a1h5, as1a1s3, cls=TCLink,**customLink)
         # AS1 LINKS SWITCH-ROUTER
-        self.addLink(as1a1s1, as1a1r1, intfName2='as1a1r1-eth1', params2={'ip':'10.1.1.20/24'})
-        self.addLink(as1a1s2, as1a1r1, intfName2='as1a1r1-eth2', params2={'ip':'10.1.1.21/24'})
-        self.addLink(as1a1s3, as1a1r1, intfName2='as1a1r1-eth3', params2={'ip':'10.1.1.22/24'})
+        self.addLink(as1a1s1, as1a1r1, intfName2='as1a1r1-eth1', params2={'ip':'10.1.1.1/24'})
+        self.addLink(as1a1s2, as1a1r1, intfName2='as1a1r1-eth2', params2={'ip':'10.1.2.1/24'})
+        self.addLink(as1a1s3, as1a1r1, intfName2='as1a1r1-eth3', params2={'ip':'10.1.3.1/24'})
         # AS1 LINKS ROUTER-ABR
-        self.addLink(as1abr1, as1a1r1, intfName1='as1abr1-eth1', params1={'ip':'10.1.1.2x/24'}, intfName2='as1a1r1-eth4', params2={'ip':'10.1.1.23/24'})
-        self.addLink(as1abr2, as1a1r1, intfName1='as1abr2-eth1', params1={'ip':'10.1.1.2x/24'}, intfName2='as1a1r1-eth5', params2={'ip':'10.1.1.24/24'})
+        self.addLink(as1abr1, as1a1r1, intfName1='as1abr1-br1', params1={'ip':'10.1.4.2/24'}, intfName2='as1a1r1-eth4', params2={'ip':'10.1.4.1/24'})
+        self.addLink(as1abr2, as1a1r1, intfName1='as1abr2-br1', params1={'ip':'10.1.5.2/24'}, intfName2='as1a1r1-eth5', params2={'ip':'10.1.5.1/24'})
         # AS1 LINKS ABR-ABR
         self.addLink(as1abr1, as1abr3, cls=TCLink,**customLink)
         self.addLink(as1abr2, as1abr3, cls=TCLink,**customLink)
@@ -131,11 +131,11 @@ class SmallFeNet( Topo ):
         self.addLink(as2a2h2, as2a2s1, cls=TCLink,**customLink)
         self.addLink(as2a2h3, as2a2s2, cls=TCLink,**customLink)
         # AS2 LINKS SWITCH-ROUTER
-        self.addLink(as2a2s1, as2a2r1, cls=TCLink,**customLink)
-        self.addLink(as2a2s2, as2a2r1, cls=TCLink,**customLink)
+        self.addLink(as2a2s1, as2a2r1, intfName2='as2a2r1-eth1', params2={'ip':'20.2.1.1/24'})
+        self.addLink(as2a2s2, as2a2r1, intfName2='as2a2r1-eth2', params2={'ip':'20.2.2.1/24'})
         # AS2 LINKS ROUTER-ABR
-        self.addLink(as2abr2, as2a2r1, cls=TCLink,**customLink)
-        self.addLink(as2abr3, as2a2r1, cls=TCLink,**customLink)
+        self.addLink(as2abr2, as2a2r1, intfName1='as2abr2-br1', params1={'ip':'20.2.3.2/24'}, intfName2='as2a2r1-eth3', params2={'ip':'20.2.3.1/24'})
+        self.addLink(as2abr3, as2a2r1, intfName1='as2abr3-br1', params1={'ip':'20.2.4.2/24'}, intfName2='as2a2r1-eth4', params2={'ip':'20.2.4.1/24'})
         # AS2 LINKS ABR-ABR
         self.addLink(as2abr1, as2abr2, cls=TCLink,**customLink)
         self.addLink(as2abr1, as2abr3, cls=TCLink,**customLink)
@@ -161,12 +161,12 @@ class SmallFeNet( Topo ):
         self.addLink(as3a3h3, as3a3s3, cls=TCLink,**customLink)
         self.addLink(as3a3h4, as3a3s3, cls=TCLink,**customLink)
         # AS3 LINKS SWITCH-ROUTER
-        self.addLink(as3a3s1, as3a3r1, cls=TCLink,**customLink)
-        self.addLink(as3a3s2, as3a3r1, cls=TCLink,**customLink)
-        self.addLink(as3a3s3, as3a3r1, cls=TCLink,**customLink)
+        self.addLink(as3a3s1, as3a3r1, intfName2='as3a3r1-eth1', params2={'ip':'30.3.1.1/24'})
+        self.addLink(as3a3s2, as3a3r1, intfName2='as3a3r1-eth2', params2={'ip':'30.3.2.1/24'})
+        self.addLink(as3a3s3, as3a3r1, intfName2='as3a3r1-eth3', params2={'ip':'30.3.3.1/24'})
         # AS3 LINKS ROUTER-ABR
-        self.addLink(as3abr1, as3a3r1, cls=TCLink,**customLink)
-        self.addLink(as3abr3, as3a3r1, cls=TCLink,**customLink)
+        self.addLink(as3abr1, as3a3r1, intfName1='as3abr1-br1', params1={'ip':'30.3.5.2/24'}, intfName2='as3a3r1-eth5', params2={'ip':'30.3.5.1/24'})
+        self.addLink(as3abr3, as3a3r1, intfName1='as3abr3-br1', params1={'ip':'30.3.4.2/24'}, intfName2='as3a3r1-eth4', params2={'ip':'30.3.4.1/24'})
         # AS3 LINKS ABR-ABR
         self.addLink(as3abr1, as3abr2, cls=TCLink,**customLink)
         self.addLink(as3abr2, as3abr3, cls=TCLink,**customLink)
@@ -208,10 +208,6 @@ def main():
     as1_areaBorderRouter2.startOSPF()
     as1_areaBorderRouter3 = net.getNodeByName('as1abr3')
     as1_areaBorderRouter3.startOSPF()
-    
-    as1_area1_router1 = net.getNodeByName('as1a1r1')
-    as2_area2_router1 = net.getNodeByName('as2a2r1')
-    as3_area3_router1 = net.getNodeByName('as3a3r1')
     
     CLI(net)
     net.stop()
