@@ -80,7 +80,7 @@ class NetworkTopo( Topo ):
                       params2={'ip':'172.30.20.4/24'})
 
 def run():
-    "Test linux router"
+
     topo = NetworkTopo()
     net = Mininet( topo=topo, controller=None)  # controller is used by s1-s3
     net.addController( 'c0', controller=RemoteController, ip='192.168.56.1', port=6653 )
