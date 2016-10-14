@@ -4,6 +4,6 @@ In this repository you can find out different topologies written for mininet net
 
 ## OSPF Exercise
 Three areas, five routers and one switch...
-![](https://s17.postimg.org/dy9q4e0kf/ospf_Exercise_Topology.jpg)
+![](https://s21.postimg.org/izh0uj65z/ospf_Exercise_Topology.jpg)
 
-Each router runs quagga/ospfd service to advertise and share routing tables with their neighbor that makes every node reachable.
+Each router runs quagga/ospfd service to advertise and share routing tables with their neighbor that makes every node reachable. Check [Wiki](https://github.com/mkucukdemir/mininet-topology/wiki)
