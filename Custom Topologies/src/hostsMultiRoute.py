@@ -5,7 +5,7 @@
 # and open the template in the editor.
 
 __author__="m.kucukdemir"
-__date__ ="$Oct 7, 2016 10:59:00 AM$"
+__date__ ="$Oct 31, 2016 05:06:34 PM$"
 
 from mininet.net import Mininet
 from mininet.cli import CLI
@@ -19,8 +19,6 @@ from mininet.link import TCLink
 from mininet.node import OVSSwitch
 from mininet.node import Node
 from mininet.log import setLogLevel, info
-from time import sleep
-from os import environ
 
 class CustomNode( Node ):
 
@@ -60,11 +58,6 @@ def run():
     net[ 'r1' ].cmd('ip route add 192.2.2.0/24 dev r1-eth1')
     net[ 'r2' ].cmd('ip route add 192.1.1.0/24 dev r2-eth0')
     net[ 'r2' ].cmd('ip route add 192.1.2.0/24 dev r2-eth1')
-
-    net[ 'r1' ].cmd('tcpdump -i r1-eth0 -l > /home/mininet/dump_r1_eth0.cap &')
-    net[ 'r1' ].cmd('tcpdump -i r1-eth1 -l > /home/mininet/dump_r1_eth1.cap &')
-    net[ 'h2' ].cmd('tcpdump -i h2-eth0 -l > /home/mininet/dump_h2_eth0.cap &')
-    net[ 'h2' ].cmd('tcpdump -i h2-eth1 -l > /home/mininet/dump_h2_eth1.cap &')
     
     net.start()
     CLI(net)
