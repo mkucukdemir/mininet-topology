@@ -20,4 +20,8 @@ AS 5500 runs iBGP between r1 and r4 while r4-r5 pair share routes through eBGP. 
 
 ## Inter Autonomous System Routing
 To exercise both OSPF, iBGP and eBGP in Mininet the following topology will be implemented.
+Topology elements:
+* 6 AS Border Routers, running BGP route
+* 8 Area Border Routers, runing OSPF (in their areas)
+* 8 Switches, will be connected to some hosts
 ![](https://s18.postimg.org/5j9zf7d61/inter_ASNetwork.png)
