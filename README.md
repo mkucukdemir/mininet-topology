@@ -17,3 +17,7 @@ Each router runs quagga/ospfd service to advertise and share routing tables with
 Two autonomous system, five routers...
 ![](https://s15.postimg.org/prokyynej/bgp_Exercise_Topology.jpg)
 AS 5500 runs iBGP between r1 and r4 while r4-r5 pair share routes through eBGP. Check [Wiki](https://github.com/mkucukdemir/mininet-topology/wiki)
+
+## Inter Autonomous System Routing
+To exercise both OSPF, iBGP and eBGP in Mininet the following topology will be implemented.
+![](https://s18.postimg.org/5j9zf7d61/inter_ASNetwork.png)
