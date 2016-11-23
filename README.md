@@ -25,4 +25,4 @@ Topology elements:
 * 8 Area Border Routers, runing OSPF (in their areas)
 * 8 Switches, will be connected to some hosts
 ![](https://s13.postimg.org/l9n3y5ion/core_Net.png)
-To be able to run routing suite, do not forget to extract configuration folders from tar archive: 'Custom Topologies/quaggacfgs/coreNet_confs.tar'
+To be able to run routing suite, do not forget to extract configuration files from tar archive: 'Custom Topologies/quaggacfgs/coreNet_confs.tar'
