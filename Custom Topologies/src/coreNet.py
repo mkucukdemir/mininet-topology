@@ -45,11 +45,6 @@ class LxRouter( Node ):
         self.cmd( 'sysctl net.ipv4.ip_forward=0' )
         super( LxRouter, self ).terminate()
 
-    def startZebra(self):
-        print("***[%s] Zebra starting " % self.name)
-        self.cmd("/usr/lib/quagga/zebra -f conf/zebra-%s.conf -d -i /tmp/zebra-%s.pid > logs/%s-zebra-stdout 2>&1" % (self.name, self.name, self.name))
-        self.waitOutput()
-        
     def startBGP(self):
         print("***[%s] BGP starting " % self.name)
         self.cmd("/usr/lib/quagga/zebra -f conf/zebra-%s.conf -d -i /tmp/zebra-%s.pid > logs/%s-zebra-stdout 2>&1" % (self.name, self.name, self.name))
@@ -252,16 +247,12 @@ def run():
     net.start()
     net[ 'asbr11' ].stopQuagga()
     
-    zebraRouters = [ 'as1abr1', 'as1abr2', 'as1abr3', 'as2abr1', 'as2abr2', 'as3abr1', 'as3abr2', 'as3abr3', 'asbr11', 'asbr12', 'asbr21', 'asbr22', 'asbr31', 'asbr32']
     ospfRouters = [ 'as1abr1', 'as1abr2', 'as1abr3', 'as2abr1', 'as2abr2', 'as3abr1', 'as3abr2', 'as3abr3', 'asbr11', 'asbr12', 'asbr21', 'asbr22', 'asbr31', 'asbr32']
     bgpRouters = [ 'asbr11', 'asbr12', 'asbr21', 'asbr22', 'asbr31', 'asbr32']
 
-#    for router in bgpRouters:
-#        net[ router ].cmd( 'ifconfig lo:' + getLoopbackIp(router) + ' netmask 255.255.255.255 up' )
-
-    #for router in zebraRouters:
-    #    net[ router ].startZebra()
-    #    sleep(0.5)
+    #Define loopback interfaces
+    #for router in bgpRouters:
+    #    net[ router ].cmd( 'ifconfig lo:' + getLoopbackIp(router) + ' netmask 255.255.255.255 up' )
 
     for router in ospfRouters:
         net[ router ].startOSPF()
@@ -271,12 +262,13 @@ def run():
         net[ router ].startBGP()
         sleep(0.5)
 
-    net[ 'as1abr1' ].cmd('tcpdump -i as1abr1-br2 -l -e > /home/mininet/dump_as1abr1_br2.pcap &')
-    net[ 'asbr11' ].cmd('tcpdump -i asbr11-br3 -l -e > /home/mininet/dump_asbr11_br3.pcap &')
-    net[ 'asbr11' ].cmd('tcpdump -i asbr11-br1 -l -e > /home/mininet/dump_asbr11_br1.pcap &')
-    net[ 'asbr21' ].cmd('tcpdump -i asbr21-br1 -l -e > /home/mininet/dump_asbr21_br1.pcap &')
-    net[ 'asbr21' ].cmd('tcpdump -i asbr21-br2 -l -e > /home/mininet/dump_asbr21_br2.pcap &')
-    net[ 'asbr21' ].cmd('tcpdump -i asbr21-br3 -l -e > /home/mininet/dump_asbr21_br3.pcap &')
+    #DEBUGGING
+    #net[ 'as1abr1' ].cmd('tcpdump -i as1abr1-br2 -l -e > /home/mininet/dump_as1abr1_br2.pcap &')
+    #net[ 'asbr11' ].cmd('tcpdump -i asbr11-br3 -l -e > /home/mininet/dump_asbr11_br3.pcap &')
+    #net[ 'asbr11' ].cmd('tcpdump -i asbr11-br1 -l -e > /home/mininet/dump_asbr11_br1.pcap &')
+    #net[ 'asbr21' ].cmd('tcpdump -i asbr21-br1 -l -e > /home/mininet/dump_asbr21_br1.pcap &')
+    #net[ 'asbr21' ].cmd('tcpdump -i asbr21-br2 -l -e > /home/mininet/dump_asbr21_br2.pcap &')
+    #net[ 'asbr21' ].cmd('tcpdump -i asbr21-br3 -l -e > /home/mininet/dump_asbr21_br3.pcap &')
 
     CLI(net)
     print "CoreNet is terminating"
