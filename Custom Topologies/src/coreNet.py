@@ -47,16 +47,16 @@ class LxRouter( Node ):
 
     def startBGP(self):
         print("***[%s] BGP starting " % self.name)
-        self.cmd("/usr/lib/quagga/zebra -f conf/zebra-%s.conf -d -i /tmp/zebra-%s.pid > logs/%s-zebra-stdout 2>&1" % (self.name, self.name, self.name))
+        self.cmd("/usr/lib/quagga/zebra -f ../quaggacfgs/zebra-%s.conf -d -i /tmp/zebra-%s.pid > ../logs/%s-zebra-stdout 2>&1" % (self.name, self.name, self.name))
         self.waitOutput()
-        self.cmd("/usr/lib/quagga/bgpd -f conf/bgpd-%s.conf -d -i /tmp/bgp-%s.pid > logs/%s-bgpd-stdout 2>&1" % (self.name, self.name, self.name), shell=True)
+        self.cmd("/usr/lib/quagga/bgpd -f ../quaggacfgs/bgpd-%s.conf -d -i /tmp/bgp-%s.pid > ../logs/%s-bgpd-stdout 2>&1" % (self.name, self.name, self.name), shell=True)
         self.waitOutput()
         
     def startOSPF(self):
         print("***[%s] OSPF starting " % self.name)
-        self.cmd("/usr/lib/quagga/zebra -f conf/zebra-%s.conf -d -i /tmp/zebra-%s.pid > logs/%s-zebra-stdout 2>&1" % (self.name, self.name, self.name))
+        self.cmd("/usr/lib/quagga/zebra -f ../quaggacfgs/zebra-%s.conf -d -i /tmp/zebra-%s.pid > ../logs/%s-zebra-stdout 2>&1" % (self.name, self.name, self.name))
         self.waitOutput()
-        self.cmd("/usr/lib/quagga/ospfd -f conf/ospfd-%s.conf -d -i /tmp/ospf-%s.pid > logs/%s-ospfd-stdout 2>&1" % (self.name, self.name, self.name), shell=True)
+        self.cmd("/usr/lib/quagga/ospfd -f ../quaggacfgs/ospfd-%s.conf -d -i /tmp/ospf-%s.pid > ../logs/%s-ospfd-stdout 2>&1" % (self.name, self.name, self.name), shell=True)
         self.waitOutput()
 
     def stopQuagga( self ):
