@@ -234,7 +234,7 @@ class CoreNet( Topo ):
         self.addLink( as3a2s2, as3abr2, intfName2='as3abr2-eth2', params2={'ip':'30.2.2.1/24'})
         self.addLink( as3a2s3, as3abr2, intfName2='as3abr2-eth3', params2={'ip':'30.2.3.1/24'})
 
-def getLoopbackIp(router):
+def generateLoopbackIp(router):
     return router[4:] + ' ' + router[4:] + '.' + router[4:] + '.' + router[4:] + '.' + router[4:]
 
 def run():
@@ -252,7 +252,7 @@ def run():
 
     #Define loopback interfaces
     #for router in bgpRouters:
-    #    net[ router ].cmd( 'ifconfig lo:' + getLoopbackIp(router) + ' netmask 255.255.255.255 up' )
+    #    net[ router ].cmd( 'ifconfig lo:' + generateLoopbackIp(router) + ' netmask 255.255.255.255 up' )
 
     for router in ospfRouters:
         net[ router ].startOSPF()
