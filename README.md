@@ -4,7 +4,7 @@ In this repository you can find out different topologies written for mininet net
 
 ## Double Host-Double Router Chain
 2 hosts are connected through 2 routers...
-![](https://s22.postimg.org/gr2dthi0x/hosts_Multi_Route.png)
+![](https://s23.postimg.org/9d1qhn817/Double_Host-_Double_Router_Chain.png)
 [Look at source code...](https://github.com/mkucukdemir/mininet-topology/blob/master/Custom%20Topologies/src/hostsMultiRoute.py)
 
 ## OSPF Exercise
